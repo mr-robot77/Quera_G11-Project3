@@ -57,14 +57,74 @@ Below is a file structure of this project:
 --------------------------------------------------------------------------------------------------
 # Problem 1: Image Classification
 
+### Problem 1: Image Classification
+#### Load Data
+* Create DataFrame for **Train Data**
+    | image_dir                                           | label |
+    |-----------------------------------------------------|-------|
+    | /kaggle/input/image-prooduct-quera/train_data/...   | 7     |
+    | /kaggle/input/image-prooduct-quera/train_data/...   | 7     |
+    | /kaggle/input/image-prooduct-quera/train_data/...   | 7     |
+    | /kaggle/input/image-prooduct-quera/train_data/...   | 7     |
+    | /kaggle/input/image-prooduct-quera/train_data/...   | 7     |
 
-### Check Number of Samples in each Class
+* Create DataFrame for **Test Data**
+    | image_dir                                           |
+    |-----------------------------------------------------|
+    | /kaggle/input/image-prooduct-quera/test_data/t...   |
+    | /kaggle/input/image-prooduct-quera/test_data/t...   |
+    | /kaggle/input/image-prooduct-quera/test_data/t...   |
+    | /kaggle/input/image-prooduct-quera/test_data/t...   |
+    | /kaggle/input/image-prooduct-quera/test_data/t...   |
 
-![Alt text](images/P1/image_classification.PNG)
+* Check Number of Samples in each Class
+    * ![Alt text](images/P1/image_classification_num_sample_class.PNG)
 
-### Plot some Images in each Class
+* Plot some Images in each Class
+    * ![Alt text](images/P1/some_images.png)
 
-![Alt text](images/P1/image_classification_num_sample_class.PNG)
+#### Define Functions
+##### Function for Create Generators of Train | Validation | Test
+##### Function for Data Augmentation on each Bach
+##### Function for Create pretrained Model as Base Model
+##### Function for Add our Layeres to Base Model
+##### Functions for Evaluation Metrics
+##### Functions for Save and Load Models
+
+#### Try Models
+* ResNet 50
+    * ResNet 50 | Train  0 Layers |           -           | LR = 1e-3
+    * ResNet 50 | Train  0 Layers | 2 Dense Layer 128     | LR = 1e-3
+    * ResNet 50 | Train  5 Layers | 2 Dense Layer 128     | LR = 1e-3
+    * ResNet 50 | Train 10 layers | 2 Dense Layer 256,128 | LR = 1e-3
+    * ResNet 50 | Train 15 layers | 2 Dense Layer 256,128 | LR = 1e-3
+    * ResNet 50 | Train 20 layers | 2 Dense Layer 256,128 | LR = 1e-4
+    * ResNet 50 | Train 25 layers | 2 Dense Layer 256,128 | LR = 1e-4
+    * ResNet 50 | Train 45 layers | 2 Dense Layer 256,128 | LR = 1e-4
+      
+* Xception
+    * Xception | Train 20 layers | 2 Dense Layer 128,64  | LR = 1e-5
+    * Xception | Train 20 layers | 2 Dense Layer 128,64  | LR = 5e-5
+    * Xception | Train 20 layers | 2 Dense Layer 128,64  | LR = 1e-4
+    * Xception | Train 20 layers | 2 Dense Layer 256,128 | LR = 1e-5
+    * Xception | Train 20 layers | 2 Dense Layer 256,128 | LR = 5e-5
+    * Xception | Train 20 layers | 2 Dense Layer 256,128 | LR = 1e-4  --->
+      
+* EfficientNet V2 M
+    * EfficientNet | Train 20 layers | 2 Dense Layer 128,64 | LR = 1e-3
+    * EfficientNet | Train 20 layers | 2 Dense Layer 128,64 | LR = 5e-4
+    * EfficientNet | Train 20 layers | 2 Dense Layer 128,64 | LR = 1e-4
+    * EfficientNet | Train 20 layers | 2 Dense Layer 128,64 | LR = 1e-4 | L2
+    * EfficientNet | Train 20 layers | 2 Dense Layer 256,128 | LR = 1e-3
+    * EfficientNet | Train 20 layers | 2 Dense Layer 256,128 | LR = 5e-4
+    * EfficientNet | Train 20 layers | 2 Dense Layer 256,128 | LR = 1e-4
+    * EfficientNet | Train 20 layers | 2 Dense Layer 256,128 | LR = 1e-4 | L2
+
+#### Choose Best Model
+* **Model:** Efficient V2 M
+* **Trainable Layers:** Train 20 Layers
+* **Added Layers:** 2 Dense Layers 256, 128
+* **Learning Rate:** 1e-4
 
 ### Plot First Bach Validation Data with True,Predicted Label
 
@@ -79,10 +139,45 @@ Below is a file structure of this project:
 ### Test and Save Results
 
 #### Model with L2
+32/32 [==============================] - 18s 550ms/step <br>
+F1_micro: 0.7317317317317317
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 1     | 0.65      | 0.74   | 0.70     | 86      |
+| 2     | 0.72      | 0.54   | 0.62     | 101     |
+| 3     | 0.62      | 0.71   | 0.66     | 107     |
+| 4     | 0.75      | 0.68   | 0.71     | 78      |
+| 5     | 0.66      | 0.78   | 0.71     | 98      |
+| 6     | 0.88      | 0.67   | 0.76     | 111     |
+| 7     | 0.71      | 0.71   | 0.71     | 111     |
+| 8     | 0.85      | 0.93   | 0.89     | 104     |
+| 9     | 0.80      | 0.83   | 0.81     | 108     |
+| 10    | 0.73      | 0.71   | 0.72     | 95      |
+| Micro Avg | 0.73   | 0.73   | 0.73     | 999     |
+| Macro Avg | 0.67   | 0.66   | 0.66     | 999     |
+| Weighted Avg | 0.74| 0.73  | 0.73     | 999     |
 
 ![Alt text](images/P1/image_classification_test_Model_L2.PNG)
 
 #### Model without L2
+32/32 [==============================] - 17s 528ms/step <br>
+F1_micro: 0.7367367367367368
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 1     | 0.75      | 0.70   | 0.72     | 86      |
+| 2     | 0.59      | 0.63   | 0.61     | 101     |
+| 3     | 0.63      | 0.68   | 0.65     | 107     |
+| 4     | 0.75      | 0.64   | 0.69     | 78      |
+| 5     | 0.69      | 0.67   | 0.68     | 98      |
+| 6     | 0.79      | 0.75   | 0.77     | 111     |
+| 7     | 0.76      | 0.74   | 0.75     | 111     |
+| 8     | 0.88      | 0.90   | 0.89     | 104     |
+| 9     | 0.81      | 0.84   | 0.82     | 108     |
+| 10    | 0.74      | 0.77   | 0.75     | 95      |
+| Micro Avg | 0.74   | 0.74   | 0.74     | 999     |
+| Macro Avg | 0.67   | 0.67   | 0.67     | 999     |
+| Weighted Avg | 0.74| 0.74  | 0.74     | 999     |
+
 
 ![Alt text](images/P1/image_classification_test_Model_no_L2.PNG)
 
