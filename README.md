@@ -18,18 +18,21 @@ This team has completed the project under the mentoring of **Mr. Jour Ebrahimian
 --------------------------------------------------------------------------------------------------
 ##  Introduction
 
-Welcome to the documentation for our project that involves importing data into Jupyter Notebook, performing  and  analysis on the collected data with , and finally visualizing it. This project aims to provide valuable insights into data, enabling us to make informed decisions and gain a deeper understanding of .
+Welcome to the documentation for our project that involves analyzing product images and Amazon customer reviews. This project aims to develop machine learning models for classifying images of products from different categories and analyzing the sentiment in customer reviews. We will be using deep learning techniques on image and text data to gain valuable insights.
 
 ## Objectives
 
-The primary objective of this project is to create a  data. By following this documentation, you will learn how to:
+The main objectives of this project are :
 
-1. Image Classification: analyzing data with  and getting insights.
+1. Product Image Classification: Developing deep learning models to accurately classify images of products into predefined categories. This will help improve customer experience and increase business efficiency.
 
-2. Sentiment Analysis : analyzing data with .
+2. Sentiment Analysis: Analyzing customer reviews to understand sentiment towards different aspects like product quality, customer service etc. We will build a sentiment analysis model to predict sentiment scores.
 
-3. : .
+3. Guarantee Satisfaction Analysis: Finding reviews that discuss product guarantees/warranties and calculating average customer satisfaction scores for each product's guarantees.
 
+4. Overall Review Sentiment Prediction: Building a deep learning model that takes a customer review as input and predicts the overall sentiment/satisfaction score between 1-5.
+
+By following this documentation, you will learn how to apply deep learning techniques on images and text for classification and analysis using Python tools. This will provide valuable experience in domains of Computer Vision and Natural Language Processing.
 
 Below is a file structure of this project:
 
@@ -43,6 +46,8 @@ Below is a file structure of this project:
     |   ├── Sentiment_Analysis_Amazon_NLP_Q2.ipynb
     |   ├── Sentiment_Analysis_Amazon_NLP_Q3.ipynb
     |   ├── Sentiment_Analysis_Amazon_NLP_Q4.ipynb
+    |
+    ├── documents # Documentation of different parts of project
     |
     ├── images
     |
