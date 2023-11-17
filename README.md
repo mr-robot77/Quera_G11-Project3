@@ -1,5 +1,5 @@
 # Quera_G11-Project3
-Deep Learning (Image Classification & Sentiment Analysis)
+Amazon Products Image Classification & Customer Reviews Sentiment Analysis
 
 This repository is for the third internship project of [Quera Data Science Bootcamp](https://quera.org/college/bootcamp/data-science)
 
