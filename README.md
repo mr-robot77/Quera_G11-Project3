@@ -13,7 +13,7 @@ The following members are present in this team, arranged in alphabetical order:
 * [Mr. Ghiyasi, Mahdi](https://github.com/mahdi-ghiyasi)
 * [Mr. Moosaei, Amirali](https://github.com/mo0o0o0os)
 
-This team has completed the project under the mentoring of **Mr. Jour Ebrahimian, Hossein**.
+This team has completed the project under the mentoring of [**Mr. Jour Ebrahimian, Hossein**](https://github.com/H055EIN).
 
 --------------------------------------------------------------------------------------------------
 ##  Introduction
